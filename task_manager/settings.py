@@ -33,7 +33,7 @@ ALLOWED_HOSTS = [
     '127.0.0.1',
     '0.0.0.0',
     'webserver',
-    'python-project-52-oif2.onrender.com'
+    'python-project-52-oeyn.onrender.com'
 ]
 
 
