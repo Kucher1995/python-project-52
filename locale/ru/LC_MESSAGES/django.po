@@ -27,3 +27,11 @@ msgstr "Менеджер задач"
 #: task_manager/templates/index.html:15
 msgid "Practical programming courses"
 msgstr "Практические курсы по программированию"
+
+#: task_manager/users/models.py:11
+msgid "User"
+msgstr "Пользователь"
+
+#: task_manager/users/models.py:12
+msgid "Users"
+msgstr "Пользователи"
