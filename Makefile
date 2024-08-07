@@ -1,20 +1,42 @@
-lint:
-	poetry run flake8
-
-install: 
+install:
 	poetry install
 
-migrate:
-	poetry run python3 manage.py makemigrations
-	poetry run python3 manage.py migrate
+update:
+	poetry update
 
-build: install migrate
+dev:
+	poetry run python manage.py runserver
 
-# PORT ?= 8000
+PORT ?= 8000
 start:
-	python manage.py runserver
-# poetry run gunicorn -w 5 -b 0.0.0.0:$(PORT) task_manager.wsgi
+	poetry run gunicorn -w 5 -b 0.0.0.0:$(PORT) task_manager.wsgi
+
+shell:
+	$ ./manage.py shell
+
+test:
+	poetry run python3 manage.py test
+
+lint:
+	poetry run flake8 task_manager
+
+test-coverage:
+	poetry run coverage run manage.py test
+	poetry run coverage report -m --include=task_manager/* --omit=task_manager/settings.py
+	poetry run coverage xml --include=task_manager/* --omit=task_manager/settings.py
 
 migrate:
-	poetry run python3 manage.py makemigrations
-	poetry run python3 manage.py migrate
+	poetry run python manage.py makemigrations
+	poetry run python manage.py migrate
+
+selfcheck:
+	poetry check
+
+check:	selfcheck test-coverage lint
+
+trans-messages:
+	python manage.py makemessages -l ru
+
+compile-trans:
+	python manage.py compilemessages
+
