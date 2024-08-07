@@ -1,4 +1,3 @@
-from django.shortcuts import render
 from django.views.generic import TemplateView
 from django.contrib.auth.views import LoginView, LogoutView
 from django.contrib.auth.forms import AuthenticationForm
@@ -30,13 +29,3 @@ class Logout(LogoutView):
     def dispatch(self, request, *args, **kwargs):
         messages.info(request, _('You are logged out'))
         return super().dispatch(request, *args, **kwargs)
-
-
-def tk_handler_404(request, exception):
-    """Render 404 error page if requested page is missing."""
-    return render(request=request, template_name='404.html', status=404)
-
-
-def tk_handler_500(request):
-    """Render 500 error if unable to connect server."""
-    return render(request=request, template_name='500.html', status=500)

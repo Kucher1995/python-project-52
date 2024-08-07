@@ -2,7 +2,8 @@ from django.urls import path
 from .views import (IndexView,
                     CreateView,
                     UpdateView,
-                    DeleteView)
+                    DeleteView,
+                    )
 
 
 urlpatterns = [

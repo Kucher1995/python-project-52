@@ -5,7 +5,6 @@ from django.urls import reverse_lazy
 from .models import User
 from .forms import CreationForm
 from task_manager.mixins import RulesMixin, DeleteProtectionMixin
-# Create your views here.
 
 
 class IndexView(ListView):

@@ -11,7 +11,6 @@ from .models import Task
 from .forms import TaskForm
 from .filters import TaskFilter
 from task_manager.mixins import TaskDeleteProtection
-# Create your views here.
 
 
 class IndexView(LoginRequiredMixin, FilterView):
