@@ -4,6 +4,9 @@ install:
 update:
 	poetry update
 
+build:
+	install migrate
+
 dev:
 	poetry run python manage.py runserver
 
@@ -20,19 +23,9 @@ test:
 lint:
 	poetry run flake8 task_manager
 
-test-coverage:
-	poetry run coverage run manage.py test
-	poetry run coverage report -m --include=task_manager/* --omit=task_manager/settings.py
-	poetry run coverage xml --include=task_manager/* --omit=task_manager/settings.py
-
 migrate:
 	poetry run python manage.py makemigrations
 	poetry run python manage.py migrate
-
-selfcheck:
-	poetry check
-
-check:	selfcheck test-coverage lint
 
 trans-messages:
 	python manage.py makemessages -l ru
